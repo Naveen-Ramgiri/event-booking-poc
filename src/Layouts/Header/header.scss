@@ -1,0 +1,202 @@
+@import '../../Sass/Base/variables';
+
+.header {
+    background-color: $primary-color;
+    padding: $padding-lv-3 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 0 4px 3px rgb(188 188 188 / 50%);
+
+    &__content {
+        @include flex-props;
+        align-items: center;
+    }
+
+    &__logo {
+
+        img {
+            width: 120px;
+        }
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__categories {
+        ul {
+            display: flex;
+            list-style-type: none;
+            margin-bottom: 0;
+
+            li a {
+
+                text-decoration: none;
+                color: $secondary-color;
+                font-size: 16px;
+                margin-left: $margin-lv-3;
+                border-bottom: 1px solid $primary-color;
+                padding-bottom: $padding-lv-3;
+
+                &:hover,
+                &:focus {
+                    color: $teritary-color;
+                    border-bottom: 4px solid $teritary-color;
+                }
+
+                &:active {
+                    border-bottom: 4px solid $teritary-color;
+                }
+
+                .active {
+                    border-bottom: 4px solid $teritary-color;
+                }
+            }
+        }
+    }
+
+    &__icons {
+
+        span {
+            font-size: 20px;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            justify-content: flex-end;
+            margin-bottom: 0;
+
+            li {
+                margin-left: 20px;
+
+                &:first-child {
+                    margin-left: 0px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: $teritary-color;
+                    font-size: 16px;
+
+                }
+            }
+
+            img {
+                vertical-align: middle;
+                height: 18px;
+            }
+
+            .itemnumbers {
+                position: relative;
+
+                .cart__icon {
+                    font-size: 20px;
+                    vertical-align: middle;
+                    position: inherit;
+                }
+
+                .cart__count {
+                    padding-left: $padding-lv-1;
+                    padding-top: $padding-lv-1 - 4;
+                    position: absolute;
+                    top: -5px;
+                    right: -11px;
+                    background: #000;
+                    color: #fff;
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+.sign {
+
+    .dropbtn {
+        padding-bottom: $padding-lv-6;
+    }
+
+    .dropdown-content {
+        right: 30px;
+        top: 45px;
+        left: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+}
+
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: $primary-color;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    color: $teritary-color;
+    z-index: 1;
+    right: 0px;
+    left: auto;
+    top: 41px;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content.dropdown-content1 a {
+    color: $teritary-color;
+    padding: $padding-lv-1 $padding-lv-3;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    text-align: center;
+    border: 0px;
+  }
+  .dropdown-content.dropdown-content1 a:hover {
+    border: 0px;
+  }
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: transparent}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: transparent;
+  }
+
+@include responsive(tablet) {
+    .header {
+        display: none;
+    }
+}
+
+@include responsive(phone) {
+    .header {
+        display: none;
+    }
+}

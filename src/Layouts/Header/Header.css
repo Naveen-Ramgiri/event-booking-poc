@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Source+Serif+Pro&display=swap");
+h1, h2, h3 {
+  font-family: "Source Serif Pro", serif;
+}
+
+.button-primary {
+  background-color: #1B252C;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  border-color: transparent;
+  padding: 5px 30px;
+  text-decoration: none;
+}
+.button-primary:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-secondary {
+  background-color: #1B252C;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px 30px;
+  border: 2px solid #fff;
+  text-decoration: none;
+}
+.button-secondary:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header {
+  background-color: #fff;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 0 4px 3px rgba(188, 188, 188, 0.5);
+}
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo img {
+  width: 120px;
+}
+.header__logo a {
+  text-decoration: none;
+}
+.header__logo a:hover {
+  text-decoration: none;
+}
+.header__categories ul {
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+.header__categories ul li a {
+  text-decoration: none;
+  color: #1B252C;
+  font-size: 16px;
+  margin-left: 15px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 15px;
+}
+.header__categories ul li a:hover, .header__categories ul li a:focus {
+  color: #1B252C;
+  border-bottom: 4px solid #1B252C;
+}
+.header__categories ul li a:active {
+  border-bottom: 4px solid #1B252C;
+}
+.header__categories ul li a .active {
+  border-bottom: 4px solid #1B252C;
+}
+.header__icons span {
+  font-size: 20px;
+}
+.header__icons ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
+.header__icons ul li {
+  margin-left: 20px;
+}
+.header__icons ul li:first-child {
+  margin-left: 0px;
+}
+.header__icons ul li a {
+  text-decoration: none;
+  color: #1B252C;
+  font-size: 16px;
+}
+.header__icons ul img {
+  vertical-align: middle;
+  height: 18px;
+}
+.header__icons ul .itemnumbers {
+  position: relative;
+}
+.header__icons ul .itemnumbers .cart__icon {
+  font-size: 20px;
+  vertical-align: middle;
+  position: inherit;
+}
+.header__icons ul .itemnumbers .cart__count {
+  padding-left: 5px;
+  padding-top: 1px;
+  position: absolute;
+  top: -5px;
+  right: -11px;
+  background: #000;
+  color: #fff;
+  width: 17px;
+  height: 17px;
+  border-radius: 50px;
+  font-size: 12px;
+}
+
+.sign .dropbtn {
+  padding-bottom: 30px;
+}
+.sign .dropdown-content {
+  right: 30px;
+  top: 45px;
+  left: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.dropbtn {
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  color: #1B252C;
+  z-index: 1;
+  right: 0px;
+  left: auto;
+  top: 41px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content.dropdown-content1 a {
+  color: #1B252C;
+  padding: 5px 15px;
+  text-decoration: none;
+  display: block;
+  margin: 0;
+  text-align: center;
+  border: 0px;
+}
+
+.dropdown-content.dropdown-content1 a:hover {
+  border: 0px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: transparent;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: transparent;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .header {
+    display: none;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .header {
+    display: none;
+  }
+}/*# sourceMappingURL=header.css.map */
