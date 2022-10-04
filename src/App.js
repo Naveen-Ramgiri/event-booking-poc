@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
@@ -9,8 +9,6 @@ import AccessoriesListings from './Components/ProductListing/AccessoriesListings
 import JewelleryListings from './Components/ProductListing/JewelleryListings/JewelleryListings';
 import Cart from './Components/Cart/Cart';
 import Hamburger from "./Layouts/Hamburger/Hamburger";
-import LoginApp from "./Components/Authenticate/SignIn/LoginApp";
-import SignUp from "./Components/Authenticate/SignUp/SignUp";
 import WomenProductListing from './Components/ProductListing/WomenProductListing/WomenProductListing'
 import Home from "./Components/Home/Home";
 import Checkout from "./Components/Checkout/Checkout";
@@ -18,13 +16,32 @@ import Shipmethod from "./Components/Checkout/Shipmethod";
 import Paymentmethods from "./Components/Checkout/Paymentmethods";
 import Review from "./Components/Checkout/Review";
 import OrderSuccess from "./Components/Checkout/OrderSuccess";
-import LoginForm from "./Components/Authenticate/SignIn/LoginForm";
 import AllProducts from "./Components/ProductListing/AllProducts/AllProducts";
 import CreateEvent from "./Components/CreateEvents/CreateEvent";
+import { setUser } from './Redux/actions/productsActions';
+import { useDispatch } from "react-redux";
+import { auth } from "./firebase";
+import store from './Redux/store';
 
+import Login from "./Components/pages/Login";
+import Register from "./Components/pages/Register";
 
 function App() {
+  const dispatch = useDispatch();
+  console.log("Store", store.getState())
+  const [profile, setProfile] = useState();
   const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setProfile(authUser)
+        dispatch(setUser(authUser))
+      } else {
+        dispatch(setUser(null))
+      }
+    })
+  }, [dispatch])
+  const [cabinData, setCabinData] = useState([]);
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
@@ -52,18 +69,20 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header countCartItems={cartItems.length} />
+        <Header countCartItems={cartItems.length} profile={profile} setProfile={setProfile}/>
         <Hamburger countCartItems={cartItems.length} />
         <Routes>
-          <Route path="/" exact element={<Home />} />
+          <Route path="/" exact element={<Home profile={profile}/>} />
           <Route path="/women" exact element={<WomenProductListing />} />
-          <Route path="/product/:productId" element={<ProductDetails onAdd={onAdd} cartItems={cartItems} onRemove={onRemove} />} />
+          <Route path="/product/:productId" element={<ProductDetails onAdd={onAdd} cartItems={cartItems} onRemove={onRemove} setCabinData={setCabinData} />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
           <Route path="/men" element={<MenProductListings />} />
           <Route path="/jewellery" element={<JewelleryListings />} />
           <Route path="/electronics" element={<AccessoriesListings />} />
-          <Route path="/signup" element={<SignUp />} />
           <Route path="/allproducts" element={<AllProducts />} />
+
+          <Route exact path='/login' element={<Login cabinData={cabinData} />} />
+          <Route exact path='/register' element={<Register />} />
 
           <Route path="/checkout" element={<Checkout cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
           <Route path="/shipmethod" element={<Shipmethod cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
@@ -71,7 +90,7 @@ function App() {
           <Route path="/review" element={<Review cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
           <Route path="/orderconfirmation" element={<OrderSuccess cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
 
-          <Route path="/create-event" element={<CreateEvent />} />
+          <Route path="/create-event" element={<CreateEvent profile={profile}/>} />
 
         </Routes>
         <Footer />

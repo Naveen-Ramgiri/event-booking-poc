@@ -9,7 +9,7 @@ function CreateEvent() {
                 <div className='create__event-steps'>
                     <div>
                         <h4>What type of event is it?</h4>
-                        <p>Already have an account? LOG IN or LOOK UP EVENT »</p>
+                        <p>Already have an account? <Link to="/Login">LOG IN </Link>or LOOK UP EVENT »</p>
                         <ul>
                             <li>
                                 <Link to="">

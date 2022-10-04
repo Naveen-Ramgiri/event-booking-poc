@@ -2,16 +2,26 @@ import React from "react";
 import './Header.css';
 import '../../Css/aem-grid.css';
 import { Link, NavLink } from "react-router-dom";
-// import search from '../Header/search.png';
-// import user from '../Header/user.png';
-// import bag from '../Header/shopping-bag.png';
 import { FiSearch } from '@react-icons/all-files/fi/FiSearch';
 import { FiUser } from '@react-icons/all-files/fi/FiUser';
 import { RiShoppingBag3Line } from '@react-icons/all-files/ri/RiShoppingBag3Line';
-import LoginApp from "../../Components/Authenticate/SignIn/LoginApp";
 import logo from '../Header/logo.jpg';
+import { useDispatch, useSelector } from "react-redux";
+import { logoutInitiate } from '../../Redux/actions/productsActions';
+import { useNavigate } from "react-router-dom";
 
-const Header = (props) => {
+function Header({ profile, setProfile }) {
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleAuth = () => {
+    if (currentUser) {
+      dispatch(logoutInitiate());
+      setProfile();
+      console.log("Profile After Logout", profile);
+    }
+    navigate('/login');
+  }
   return (
     <header className="header">
       <div className="container">
@@ -37,15 +47,17 @@ const Header = (props) => {
           </div>
           <div className="header__icons">
             <ul>
-              {/* <li><NavLink to='#'><span><FiSearch /></span> Search</NavLink></li>
-              <li className="dropdown sign"><NavLink to='#' className='dropbtn'><span><FiUser /></span> Sign in</NavLink>
-                <div className="dropdown-content">
-                  <div className="login">
-                    <LoginApp />
-                  </div>
-                </div>
-              </li> */}
+              <li><NavLink to='#'><span><FiSearch /></span> Search</NavLink></li>
+              <li>
+                {profile && profile._delegate.displayName ? (<Link to="/" onClick={handleAuth}><span><FiUser /></span>Logout</Link>) : (<Link to="/login"><span><FiUser /></span>Login</Link>)}
+              </li>
               <li className="itemnumbers">
+                <NavLink to="/cart">
+                  <span className="cart__icon"><RiShoppingBag3Line /></span>
+                </NavLink>
+              </li>
+
+              {/* <li className="itemnumbers">
                 <NavLink to="/cart">
                   <span className="cart__icon"><RiShoppingBag3Line /></span> {' '}
                   {props.countCartItems ? (
@@ -54,7 +66,7 @@ const Header = (props) => {
                     ''
                   )}
                 </NavLink>{' '}
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
