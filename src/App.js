@@ -25,6 +25,7 @@ import store from './Redux/store';
 
 import Login from "./Components/pages/Login";
 import Register from "./Components/pages/Register";
+import EditEvent from "./Components/CreateEvents/EditEvent";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +42,6 @@ function App() {
       }
     })
   }, [dispatch])
-  const [cabinData, setCabinData] = useState([]);
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
@@ -74,14 +74,14 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home profile={profile}/>} />
           <Route path="/women" exact element={<WomenProductListing />} />
-          <Route path="/product/:productId" element={<ProductDetails onAdd={onAdd} cartItems={cartItems} onRemove={onRemove} setCabinData={setCabinData} />} />
+          <Route path="/product/:productId" element={<ProductDetails onAdd={onAdd} cartItems={cartItems} onRemove={onRemove} />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
           <Route path="/men" element={<MenProductListings />} />
           <Route path="/jewellery" element={<JewelleryListings />} />
           <Route path="/electronics" element={<AccessoriesListings />} />
           <Route path="/allproducts" element={<AllProducts />} />
 
-          <Route exact path='/login' element={<Login cabinData={cabinData} />} />
+          <Route exact path='/login' element={<Login  />} />
           <Route exact path='/register' element={<Register />} />
 
           <Route path="/checkout" element={<Checkout cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
@@ -90,7 +90,8 @@ function App() {
           <Route path="/review" element={<Review cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
           <Route path="/orderconfirmation" element={<OrderSuccess cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
 
-          <Route path="/create-event" element={<CreateEvent profile={profile}/>} />
+          <Route path="/create-event" element={<CreateEvent profile={profile} setProfile={setProfile}/>} />
+          <Route path="/edit-event" element={<EditEvent profile={profile} setProfile={setProfile}/>} />
 
         </Routes>
         <Footer />

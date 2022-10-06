@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginInitiate } from '../../Redux/actions/productsActions';
 import { logoutInitiate } from '../../Redux/actions/productsActions';
+import EditEvent from '../CreateEvents/EditEvent';
 
-const Login = ({ cabinData }) => {
+const Login = (props) => {
     const [state, setState] = useState({
         email: "",
         password: "",
@@ -15,7 +16,7 @@ const Login = ({ cabinData }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (currentUser && cabinData._id) {
+        if (currentUser) {
             navigate('/women');
         }
         else {
@@ -81,6 +82,7 @@ const Login = ({ cabinData }) => {
                     
                 </form>
             </div>
+            <EditEvent/>
         </div>
     )
 }
