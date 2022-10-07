@@ -12,7 +12,7 @@ function CreateEvent() {
                         <p>Already have an account? <Link to="/Login">LOG IN </Link>or LOOK UP EVENT »</p>
                         <ul>
                             <li>
-                                <Link to="">
+                                <Link to="/EventType">
                                     <h5>Wedding Party</h5>
                                     <i class="fa fa-life-ring" aria-hidden="true"></i>
                                 </Link>
@@ -25,9 +25,14 @@ function CreateEvent() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="">
+                                <Link to="/MardiGras">
                                     <h5>FOrmal Event - Single Rental</h5>
                                     <i class="fa fa-user-o"></i>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/MardiGras">
+                                    <h5>MARDI GRAS</h5>
                                 </Link>
                             </li>
                         </ul>

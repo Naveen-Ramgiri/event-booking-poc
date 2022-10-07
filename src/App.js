@@ -25,6 +25,8 @@ import store from './Redux/store';
 
 import Login from "./Components/pages/Login";
 import Register from "./Components/pages/Register";
+import EventType from "./Components/CreateEvents/EventType";
+import MardiGras from "./Components/CreateEvents/MardiGras";
 
 function App() {
   const dispatch = useDispatch();
@@ -91,6 +93,9 @@ function App() {
           <Route path="/orderconfirmation" element={<OrderSuccess cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />} />
 
           <Route path="/create-event" element={<CreateEvent profile={profile}/>} />
+          <Route path="/eventtype" element={<EventType/>} />
+          <Route path="/mardigras" element={<MardiGras/>} />
+
 
         </Routes>
         <Footer />
