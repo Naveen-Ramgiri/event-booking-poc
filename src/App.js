@@ -26,6 +26,8 @@ import store from './Redux/store';
 import Login from "./Components/pages/Login";
 import Register from "./Components/pages/Register";
 import EditEvent from "./Components/CreateEvents/EditEvent";
+import EventType from "./Components/CreateEvents/EventType";
+import MardiGras from "./Components/CreateEvents/MardiGras";
 
 function App() {
   const dispatch = useDispatch();
@@ -92,6 +94,9 @@ function App() {
 
           <Route path="/create-event" element={<CreateEvent profile={profile} setProfile={setProfile}/>} />
           <Route path="/edit-event" element={<EditEvent profile={profile} setProfile={setProfile}/>} />
+          <Route path="/eventtype" element={<EventType/>} />
+          <Route path="/mardigras" element={<MardiGras/>} />
+
 
         </Routes>
         <Footer />
