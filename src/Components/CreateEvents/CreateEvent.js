@@ -37,7 +37,6 @@ function CreateEvent() {
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginInitiate } from '../../Redux/actions/productsActions';
 import { logoutInitiate } from '../../Redux/actions/productsActions';
-import EditEvent from '../CreateEvents/EditEvent';
 
 const Login = (props) => {
     const [state, setState] = useState({
@@ -82,7 +81,7 @@ const Login = (props) => {
                     
                 </form>
             </div>
-            <EditEvent/>
+            
         </div>
     )
 }
