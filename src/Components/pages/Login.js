@@ -46,7 +46,7 @@ const Login = (props) => {
         <div className='container'>
             <div id="logreg-forms">
                 <form className='form-signin' onSubmit={handleSubmit}>
-                    <h1 className='h3 mb-3 font-weight-normal' style={{ textAlign: "center", color: "white" }}>
+                    <h1 className='h3 mb-3 font-weight-normal'>
                         Sign in to your account.
                     </h1>
                     <p className='text-center lead'>Don't have an account?
@@ -73,7 +73,7 @@ const Login = (props) => {
                         required
                     />
                     <div className='text-center'>
-                        <button className='btn btn-block signinb' type='submit'>
+                        <button className='btn btn-block btnsignin' type='submit'>
                             <i className=''></i> Sign In</button>
                     </div>
                     <hr />
