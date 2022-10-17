@@ -49,15 +49,15 @@
 
 :root {
     --ion-color-rose: #831843;
-    --ion-color-rose-rgb: 131,24,67;
+    --ion-color-rose-rgb: 131, 24, 67;
     --ion-color-rose-contrast: #ffffff;
-    --ion-color-rose-contrast-rgb: 255,255,255;
+    --ion-color-rose-contrast-rgb: 255, 255, 255;
     --ion-color-rose-shade: #73153b;
     --ion-color-rose-tint: #8f2f56;
-  
+
     --ion-text-color: #881337;
-    --ion-text-color-rgb: 136,19,55;
-  
+    --ion-text-color-rgb: 136, 19, 55;
+
     --ion-color-step-50: #f9e6e9;
     --ion-color-step-100: #f3dbdf;
     --ion-color-step-150: #edd0d6;
@@ -77,21 +77,134 @@
     --ion-color-step-850: #9a3453;
     --ion-color-step-900: #94294a;
     --ion-color-step-950: #8e1e40;
-  }
-  
-  .ion-color-rose {
+}
+
+.ion-color-rose {
     --ion-color-base: var(--ion-color-rose);
     --ion-color-base-rgb: var(--ion-color-rose-rgb);
     --ion-color-contrast: var(--ion-color-rose-contrast);
     --ion-color-contrast-rgb: var(--ion-color-rose-contrast-rgb);
     --ion-color-shade: var(--ion-color-rose-shade);
     --ion-color-tint: var(--ion-color-rose-tint);
-  }
-  
-  ion-datetime {
+}
+
+ion-datetime {
     --background: #fff1f2;
-    --background-rgb: 255,241,242;
-    
+    --background-rgb: 255, 241, 242;
+
     border-radius: 16px;
     box-shadow: rgba(var(--ion-color-rose-rgb), 0.3) 0px 10px 15px -3px;
-  }
+}
+
+.editevent {
+    padding: 100px;
+
+    button {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    h4 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    span {
+        font-size: 18px;
+        font-weight: normal;
+    }
+    h5{
+        background-color: #000;
+        color: #fff;
+        padding: 10px 15px;
+        font-size: 14px; 
+        margin-bottom: 20px;
+    }
+    .even{
+        padding-left: 20px !important;
+        padding-right: 0px !important;
+    }
+    .odd{
+        padding-right: 20px !important;
+        padding-left: 0px !important;
+    }
+    input{
+        font-size: 14px;
+        height: 40px;
+    }
+    select{
+        font-size: 14px;
+        height: 40px;
+        width: 100%;
+        padding: 0 5px;
+    }
+}
+
+.toggle-box-content{
+    padding: 30px 0px;
+    width: 75%;
+    margin: auto;
+}
+
+.toggle-box {
+    display: none;
+}
+
+.toggle-box+label {
+    color: #555;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 23px;
+    padding: 10px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.toggle-box+label+div {
+    display: none;
+}
+
+.toggle-box:checked+label:nth-child(n)+div {
+    display: block;
+}
+
+.toggle-box+label:before {
+    position: absolute;
+    content: "\f040";
+    font-family: FontAwesome;
+    top: .3em;
+    left: 0px;
+    color: #c7c2c2;
+}
+
+.toggle-box:checked+label {
+    color: #0085a6;
+}
+
+.toggle-box:checked+label:before {
+    content: "\f00d";
+}
+
+// .toggle-box-content {
+//     border-bottom: 4px double #bfbfbf;
+//     color: #000;
+//     padding: 2px 1em .6em 28px;
+// }
+
+/* General */
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.box-test {
+    padding: 3em;
+}

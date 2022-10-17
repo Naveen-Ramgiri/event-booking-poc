@@ -2,13 +2,13 @@
     width: 412px;
     margin: 10vh auto;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid #dcdcdc;
   }
   #register-form form {
     width: 100%;
     max-width: 410px;
     padding: 15px;
     margin: auto;
-    background-color: #E26A2C;
   }
   #register-form .form-control {
     position: relative;
@@ -45,7 +45,7 @@
   #register-form a {
     display: block;
     padding-top: 10px;
-    color: lightseagreen;
+    text-decoration: none;
   }
   
   #logreg-form .lines {
@@ -53,18 +53,12 @@
     border: 1px solid red;
   }
   
-  #register-form button[type="submit"] {
-    margin-top: 10px;
-    background-color: navajowhite;
-    border: none;
-    padding: 12px;
-    color: black;
-  }
+  
   .signUp{
     font-size: 15px;
   }
   .back{
-    font-size: 20px;
+    font-size: 14px;
     color: black;
   }
   #register-form .facebook-btn {
@@ -123,4 +117,9 @@
       content: "Google+";
     }
   }
-  
+  .btnsignin{
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 14px;
+  }

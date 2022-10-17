@@ -20,10 +20,8 @@ function MardiGras() {
                                     <h5>NO,CREATE A SINGLE RENTAL</h5>
                                 </Link>
                             </li>
-                          
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>

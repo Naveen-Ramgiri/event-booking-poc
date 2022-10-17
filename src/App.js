@@ -26,6 +26,7 @@ import store from "./Redux/store";
 
 import Login from "./Components/pages/Login";
 import Register from "./Components/pages/Register";
+import EditEvent from "./Components/CreateEvents/EditEvent";
 import EventType from "./Components/CreateEvents/EventType";
 import MardiGras from "./Components/CreateEvents/MardiGras";
 import ReactCalendar from "./Components/Calendar/ReactCalendar";
@@ -45,7 +46,6 @@ function App() {
       }
     });
   }, [dispatch]);
-  const [cabinData, setCabinData] = useState([]);
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
@@ -89,7 +89,6 @@ function App() {
                 onAdd={onAdd}
                 cartItems={cartItems}
                 onRemove={onRemove}
-                setCabinData={setCabinData}
               />
             }
           />
@@ -104,12 +103,67 @@ function App() {
           <Route path="/electronics" element={<AccessoriesListings />} />
           <Route path="/allproducts" element={<AllProducts />} />
 
-          <Route
-            exact
-            path="/login"
-            element={<Login cabinData={cabinData} />}
-          />
+          <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+
+          <Route
+            path="/checkout"
+            element={
+              <Checkout
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+              />
+            }
+          />
+          <Route
+            path="/shipmethod"
+            element={
+              <Shipmethod
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+              />
+            }
+          />
+          <Route
+            path="/payment"
+            element={
+              <Paymentmethods
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+              />
+            }
+          />
+          <Route
+            path="/review"
+            element={
+              <Review cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />
+            }
+          />
+          <Route
+            path="/orderconfirmation"
+            element={
+              <OrderSuccess
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+              />
+            }
+          />
+
+          <Route
+            path="/create-event"
+            element={<CreateEvent profile={profile} setProfile={setProfile} />}
+          />
+          <Route
+            path="/edit-event"
+            element={<EditEvent profile={profile} setProfile={setProfile} />}
+          />
+          <Route path="/eventtype" element={<EventType />} />
+          <Route path="/mardigras" element={<MardiGras />} />
+          <Route path="/ReactCalendar" element={<ReactCalendar />} />
 
           <Route
             path="/checkout"

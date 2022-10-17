@@ -42,7 +42,7 @@ const Register = () => {
         <div>
             <div id="register-form">
                 <form className='form-signup' onSubmit={handleSubmit}>
-                    <h1 className='h3 mb-3 font-weight-normal' style={{ textAlign: "center", color: "white" }}>
+                    <h1 className='h3 mb-3 font-weight-normal text-center'>
                         Sign up
                     </h1>
                     <input
@@ -85,7 +85,7 @@ const Register = () => {
                         value={passwordConfirm}
                         required
                     />
-                    <button className='btn btn-primary btn-block' type='submit'>
+                    <button className='btn btnsignin btn-block' type='submit'>
                         <span className='signUp'>Sign Up</span>
                     </button>
                     <Link to="/login">
